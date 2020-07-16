@@ -34,6 +34,10 @@ class App extends Component {
     .catch((err) => console.log(err.response.data) );
   }
 
+  submitNote = (data) => {
+    console.log(data);
+  }
+
   render() {
     const { showNote, notes, note } = this.state;
     return (
@@ -42,6 +46,7 @@ class App extends Component {
         { showNote ? 
           < Note 
             note={note}
+            submitNote={this.submitNote}
           /> 
           : 
           < List 
