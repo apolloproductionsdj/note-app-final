@@ -5,10 +5,13 @@ class Nav extends React.Component {
 
   render() {
     return(
-      <div class="nav-component">
-        Nav Component
+      <div class="nav-container">
+        <div className="nav-logo">Note</div>
+        <div className="nav-button">
+          + Note
+        </div>
       </div>
-    )
+    );
   }
 }
 
