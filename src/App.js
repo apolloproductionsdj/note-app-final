@@ -30,6 +30,12 @@ class App extends Component {
     });
   }
 
+  closeTagForm = () => {
+    this.setState({
+      newTag: false
+    });
+  }
+
   getNotes = () => {
     axios.get(urlFor('notes'))
     .then((res) => this.setState({ notes: res.data }) )
@@ -75,6 +81,7 @@ class App extends Component {
             submitNote={this.submitNote}
             showTagForm={this.showTagform}
             newTag={newTag}
+            closeTagForm={this.closeTagForm}
           /> 
           : 
           < List 
