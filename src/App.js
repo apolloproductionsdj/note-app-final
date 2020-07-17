@@ -12,7 +12,8 @@ class App extends Component {
     this.state = {
       showNote: false,
       notes: [],
-      note: {}
+      note: {},
+      newTag: false
     };
   }
 
@@ -20,6 +21,12 @@ class App extends Component {
     this.setState({
       showNote: ! this.state.showNote,
       note: {}
+    });
+  }
+
+  showTagform = () => {
+    this.setState({
+      newTag: true
     });
   }
 
@@ -58,7 +65,7 @@ class App extends Component {
   }
 
   render() {
-    const { showNote, notes, note } = this.state;
+    const { showNote, notes, note, newTag } = this.state;
     return (
       <div className="App">
         <Nav toggleNote={this.toggleNote} showNote={showNote} />
@@ -66,6 +73,8 @@ class App extends Component {
           < Note 
             note={note}
             submitNote={this.submitNote}
+            showTagForm={this.showTagform}
+            newTag={newTag}
           /> 
           : 
           < List 
