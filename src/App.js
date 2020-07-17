@@ -36,6 +36,12 @@ class App extends Component {
     });
   }
 
+  submitTag = (data, noteId) => {
+    axios.post(urlFor(`notes/${noteId}/tags`), data)
+    .then((res) => this.getNote(noteId) )
+    .catch((err) => console.log(err.response.data) );
+  }
+
   getNotes = () => {
     axios.get(urlFor('notes'))
     .then((res) => this.setState({ notes: res.data }) )
@@ -82,6 +88,7 @@ class App extends Component {
             showTagForm={this.showTagform}
             newTag={newTag}
             closeTagForm={this.closeTagForm}
+            submitTag={this.submitTag}
           /> 
           : 
           < List 
