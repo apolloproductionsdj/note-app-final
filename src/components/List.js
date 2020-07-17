@@ -8,6 +8,7 @@ class List extends React.Component {
     this.props.getNotes();
   }
 
+
   render() {
     const { notes, getNote, deleteNote } = this.props;
 
